@@ -33,4 +33,11 @@
         android:text="reset button"
         gb:layout_constraintTop_toBottomOf="@+id/Pie" />
 
+
+    <com.betterzw.customview.widget.BezierView
+        android:id="@+id/bezierView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        gb:layout_constraintTop_toBottomOf="@+id/Reset" />
+
 </android.support.constraint.ConstraintLayout>

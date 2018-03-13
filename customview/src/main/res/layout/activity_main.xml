@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gb="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.betterzw.customview.MainActivity">
+
+    <com.betterzw.customview.widget.PieChart
+        android:id="@+id/Pie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_weight="100"
+        gb:showText="true"
+        gb:labelHeight="20dp"
+        gb:labelWidth="110dp"
+        gb:labelY="85dp"
+        gb:labelPosition="left"
+        gb:highlightStrength="1.12"
+        android:background="@android:color/white"
+        gb:pieRotation="0"
+        gb:labelColor="@android:color/black"
+        gb:autoCenterPointerInSlice="true"
+        gb:pointerRadius="4dp"
+        />
+
+    <Button
+        android:id="@+id/Reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="reset button"
+        gb:layout_constraintTop_toBottomOf="@+id/Pie" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_main" >
+
+    <WebView
+        android:id="@+id/mywebview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <Button
+        android:id="@+id/button_loadurl"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="40dp"
+        android:layout_centerInParent="true"
+        android:text="通过loadUrl调用网页的js"/>
+
+    <Button
+        android:id="@+id/button_evaluatejs"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_below="@id/button_loadurl"
+        android:text="通过evaluateJavascript调用js"/>
+
+</RelativeLayout>

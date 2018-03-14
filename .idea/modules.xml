@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidDemo.iml" filepath="$PROJECT_DIR$/AndroidDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layoutmanagerdemo/layoutmanagerdemo.iml" filepath="$PROJECT_DIR$/layoutmanagerdemo/layoutmanagerdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webviewjavascript/webviewjavascript.iml" filepath="$PROJECT_DIR$/webviewjavascript/webviewjavascript.iml" />
     </modules>
   </component>
 </project>

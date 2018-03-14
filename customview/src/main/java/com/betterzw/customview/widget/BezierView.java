@@ -47,11 +47,12 @@ public class BezierView extends View{
         // TODO Auto-generated method stub
         super.onDraw(canvas);
 
-       canvas.translate(0, 0);
+        canvas.translate(0, 0);
         path = new Path();
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(3);
-        paint.setStyle(Paint.Style.FILL);
+        //实心或者空心
+        paint.setStyle(Paint.Style.STROKE);
         //设置虚线效果
         paint.setPathEffect(new DashPathEffect(new float[] {15, 5}, 0));
 

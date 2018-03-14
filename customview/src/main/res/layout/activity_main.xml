@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:gb="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,17 +12,17 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_weight="100"
-        gb:showText="true"
-        gb:labelHeight="20dp"
-        gb:labelWidth="110dp"
-        gb:labelY="85dp"
-        gb:labelPosition="left"
-        gb:highlightStrength="1.12"
+        app:showText="true"
+        app:labelHeight="20dp"
+        app:labelWidth="110dp"
+        app:labelY="85dp"
+        app:labelPosition="left"
+        app:highlightStrength="1.12"
         android:background="@android:color/white"
-        gb:pieRotation="0"
-        gb:labelColor="@android:color/black"
-        gb:autoCenterPointerInSlice="true"
-        gb:pointerRadius="4dp"
+        app:pieRotation="0"
+        app:labelColor="@android:color/black"
+        app:autoCenterPointerInSlice="true"
+        app:pointerRadius="4dp"
         />
 
     <Button
@@ -31,13 +31,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="reset button"
-        gb:layout_constraintTop_toBottomOf="@+id/Pie" />
+        app:layout_constraintTop_toBottomOf="@+id/Pie" />
 
 
     <com.betterzw.customview.widget.BezierView
         android:id="@+id/bezierView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        gb:layout_constraintTop_toBottomOf="@+id/Reset" />
+        app:layout_constraintTop_toBottomOf="@+id/Reset" />
+    
+    <com.betterzw.customview.widget.CircleImageView
+        android:layout_width="45dip"
+        android:layout_height="45dip"
+        app:border_color="@color/colorAccent"
+        app:border_width="1dp"
+        android:src="@drawable/background"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -18,6 +18,8 @@ import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -32,6 +34,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.Locale;
 
@@ -62,6 +65,10 @@ public class Utils {
             e.printStackTrace();
             return 0;
         }
+    }
+
+    public static int getAndroidCode(){
+        return Build.VERSION.SDK_INT;
     }
 
     /**
@@ -112,6 +119,21 @@ public class Utils {
         return memoryInfo;
     }
 
+
+    /**
+     * 返回actionBar大小
+     * @param context
+     * @return
+     */
+    public int getActionBarSize(Context context){
+        TypedValue tv = new TypedValue();
+        if (context.getTheme().resolveAttribute(
+                android.R.attr.actionBarSize, tv, true)) {
+            return TypedValue.complexToDimensionPixelSize(
+                    tv.data, context.getResources().getDisplayMetrics());
+        }
+        return 0;
+    }
     /**
      * 粗略检查字符串是不是手机号
      */
@@ -133,6 +155,17 @@ public class Utils {
         }
         return true;
     }
+
+    /**
+     * 判断邮件是否合法
+     *
+     * @param email
+     * @return
+     */
+    public boolean isValidEmail(String email) {
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
 
     /**
      * 获取屏幕宽度
@@ -216,6 +249,36 @@ public class Utils {
         InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
+
+    /**
+     * 大小可读
+     * @param size
+     * @return
+     */
+    public static String readableFileSize(long size) {
+        if(size <= 0) return "0";
+        final String[] units = new String[] { "B", "kB", "MB", "GB", "TB" };
+        int digitGroups = (int) (Math.log10(size)/Math.log10(1024));
+        return new DecimalFormat("#,##0.#").format(size/Math.pow(1024, digitGroups)) + " " + units[digitGroups];
+    }
+
+    /**
+     * 检查google service
+     * @return
+     */
+   /* private boolean checkPlayServices() {
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+                GooglePlayServicesUtil.getErrorDialog(resultCode, this,
+                        PLAY_SERVICES_RESOLUTION_REQUEST).show();
+            } else {
+                Log.i("tag", "This device is not supported.");
+            }
+            return false;
+        }
+        return true;
+    }*/
 
 
 }

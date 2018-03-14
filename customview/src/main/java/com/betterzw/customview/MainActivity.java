@@ -7,16 +7,18 @@ import android.view.View;
 import android.widget.Button;
 
 import com.betterzw.customview.widget.PieChart;
+import com.betterzw.customview.widget.XfermodesView;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
+        setContentView(new XfermodesView(this));
 
 
-        Resources res = getResources();
+        /*Resources res = getResources();
 
         final PieChart pie = (PieChart) this.findViewById(R.id.Pie);
         pie.addItem("Agamemnon", 2, res.getColor(R.color.seafoam));
@@ -30,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 pie.setCurrentItem(0);
             }
-        });
+        });*/
     }
 }

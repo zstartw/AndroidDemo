@@ -2,6 +2,7 @@
 
 # Path相关设置
 
+```
 path = new Path();
 //抗锯齿
 path.setAntiAlias(true)
@@ -10,7 +11,7 @@ paint.setStrokeWidth(3);
 //实心或者空心
 paint.setStyle(Paint.Style.STROKE);
 //设置虚线效果
-paint.setPathEffect(new DashPathEffect(new float[] {15, 5}, 0));
+paint.setPathEffect(new DashPathEffect(new float[] {15, 5}, 0));```
 
 # invalidate和postInvalidate的区别
 

@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
       <module fileurl="file://$PROJECT_DIR$/layoutmanagerdemo/layoutmanagerdemo.iml" filepath="$PROJECT_DIR$/layoutmanagerdemo/layoutmanagerdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/materialdesigndemo/materialdesigndemo.iml" filepath="$PROJECT_DIR$/materialdesigndemo/materialdesigndemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/permissiondemo/permissiondemo.iml" filepath="$PROJECT_DIR$/permissiondemo/permissiondemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/threadsample/threadsample.iml" filepath="$PROJECT_DIR$/threadsample/threadsample.iml" />
       <module fileurl="file://$PROJECT_DIR$/webviewjavascript/webviewjavascript.iml" filepath="$PROJECT_DIR$/webviewjavascript/webviewjavascript.iml" />

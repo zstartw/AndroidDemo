@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PermissionDemo</string>
+    <string name="location">Location Permission</string>
+    <string name="storage">Storage Permission</string>
+</resources>

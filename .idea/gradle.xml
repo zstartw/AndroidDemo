@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/customview" />
             <option value="$PROJECT_DIR$/layoutmanagerdemo" />
+            <option value="$PROJECT_DIR$/permissiondemo" />
+            <option value="$PROJECT_DIR$/threadsample" />
             <option value="$PROJECT_DIR$/webviewjavascript" />
           </set>
         </option>

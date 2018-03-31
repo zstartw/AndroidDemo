@@ -7,15 +7,12 @@ import android.content.ServiceConnection
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
-import kotlinx.android.synthetic.main.activity_main_service.view.*
-
 class MainActivity : AppCompatActivity() {
 
     var isBound: Boolean = false
@@ -27,7 +24,7 @@ class MainActivity : AppCompatActivity() {
      * internal
      */
 
-    /*@BindView(R.id.button1)
+    @BindView(R.id.button1)
     @JvmField var button1:Button ?= null
 
     @BindView(R.id.button2)
@@ -44,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             R.id.button3 -> startService()
             R.id.button4 -> stopService()
         }
-    }*/
+    }
 
 
     var myServiceConnection: ServiceConnection = object : ServiceConnection {
@@ -70,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         ButterKnife.bind(this)
 
 
-        findViewById<Button>(R.id.button1).setOnClickListener {
+       /* findViewById<Button>(R.id.button1).setOnClickListener {
             bindService()
         }
 
@@ -88,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.button5).setOnClickListener {
             startIntentService()
-        }
+        }*/
 
      /*   var intent = Intent(this, ServiceDemo::class.java)
         bindService(intent, myServiceConnection, Context.BIND_AUTO_CREATE)

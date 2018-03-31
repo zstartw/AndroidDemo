@@ -60,9 +60,6 @@ class ServiceDemo : Service() {
     override fun onCreate() {
         super.onCreate()
         Log.d(TAG, "onCreate")
-
-
-        Thread.sleep(20000)
     }
 
     override fun onDestroy() {

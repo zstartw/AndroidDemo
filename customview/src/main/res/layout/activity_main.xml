@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.betterzw.customview.MainActivity">
 
-    <com.betterzw.customview.widget.PieChart
+    <!--<com.betterzw.customview.widget.PieChart
         android:id="@+id/Pie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +24,7 @@
         app:labelColor="@android:color/black"
         app:autoCenterPointerInSlice="true"
         app:pointerRadius="4dp"
-        />
+        />-->
 
     <Button
         android:id="@+id/Reset"
@@ -33,12 +34,12 @@
         android:text="reset button"
         app:layout_constraintTop_toBottomOf="@+id/Pie" />
 
-
+<!--
     <com.betterzw.customview.widget.BezierView
         android:id="@+id/bezierView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/Reset" />
+        app:layout_constraintTop_toBottomOf="@+id/Reset" />-->
     
     <com.betterzw.customview.widget.CircleImageView
         android:layout_width="45dip"
@@ -47,4 +48,4 @@
         app:border_width="1dp"
         android:src="@drawable/background"/>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

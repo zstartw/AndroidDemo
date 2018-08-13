@@ -71,7 +71,31 @@ public class MainActivity extends AppCompatActivity {
                 isPageFinished = true;
             }
         });
-        webview.loadUrl(test_url);
+//        webview.loadUrl(test_url);
+
+
+/*
+        String html = "<!DOCTYPE html><html>\n" +
+                "<body style='margin:0px;padding:0px;'>\n" +
+                "    <script type='text/javascript' src='http://www.youtube.com/iframe_api'>\n" +
+                "    </script>\n" +
+                "    <script type='text/javascript'>\n" +
+                "        function onYouTubeIframeAPIReady(){\n" +
+                "            ytplayer=new YT.Player('playerId', {\n" +
+                "                events: {\n" +
+                "                    onReady:onPlayerReady\n" +
+                "                }\n" +
+                "            })\n" +
+                "        }\n" +
+                "        function onPlayerReady(a){\n" +
+                "            a.target.playVideo();\n" +
+                "        }\n" +
+                "    </script>\n" +
+                "    <iframe id='playerId' type='text/html' width=100%% height=50%% src='http://www.youtube.com/embed/47yJ2XCRLZs?enablejsapi=1&rel=0&playsinline=0&autoplay=1' frameborder='0' allowfullscreen>\n" +
+                "</body>\n" +
+                "</html>";
+        webview.loadData(html, "text/html", "utf-8");*/
+
     }
 
     private void initButton() {

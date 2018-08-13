@@ -39,18 +39,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bitmap);
+        setContentView(R.layout.activity_main);
 
 //        final ImageView imageView = findViewById(R.id.imageView2);
 
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+       /* findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Log.d("TAG","begin");
 
-               /* while (true){
+               *//* while (true){
 
                     Runtime rt = Runtime.getRuntime();
                     long maxMemory = rt.maxMemory();
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.v("onCreate", "maxMemory:" + Long.toString(maxMemory)+"=="+freeMemory);
 
                     newBitmap = Bitmap.createBitmap(4, 4, Bitmap.Config.ARGB_8888);
-                }*/
+                }*//*
 
 
 
@@ -70,14 +70,14 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*if (newBitmap != null){
+                *//*if (newBitmap != null){
                     newBitmap.recycle();
                     newBitmap = null;
                 }
-*/
+*//*
                 System.gc();
             }
-        });
+        });*/
 //        setContentView(new XfermodesView(this));
 
 

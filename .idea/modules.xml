@@ -4,12 +4,14 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidDemo.iml" filepath="$PROJECT_DIR$/AndroidDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/AndroidDemoNew.iml" filepath="$PROJECT_DIR$/.idea/AndroidDemoNew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/animationdemo/animationdemo.iml" filepath="$PROJECT_DIR$/animationdemo/animationdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
       <module fileurl="file://$PROJECT_DIR$/displayingbitmap/displayingbitmap.iml" filepath="$PROJECT_DIR$/displayingbitmap/displayingbitmap.iml" />
       <module fileurl="file://$PROJECT_DIR$/layoutmanagerdemo/layoutmanagerdemo.iml" filepath="$PROJECT_DIR$/layoutmanagerdemo/layoutmanagerdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/materialdesigndemo/materialdesigndemo.iml" filepath="$PROJECT_DIR$/materialdesigndemo/materialdesigndemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/permissiondemo/permissiondemo.iml" filepath="$PROJECT_DIR$/permissiondemo/permissiondemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerview/recyclerview.iml" filepath="$PROJECT_DIR$/recyclerview/recyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/referencesdemo/referencesdemo.iml" filepath="$PROJECT_DIR$/referencesdemo/referencesdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/servicedemo/servicedemo.iml" filepath="$PROJECT_DIR$/servicedemo/servicedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/threadsample/threadsample.iml" filepath="$PROJECT_DIR$/threadsample/threadsample.iml" />

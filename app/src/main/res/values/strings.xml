@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidDemo</string>
+
+
+    <string name="detail_popular_searches">Popular Searches</string>
+    <string name="detail_search_history">Search History</string>
+    <string name="detail_clear_history">Clear All</string>
 </resources>

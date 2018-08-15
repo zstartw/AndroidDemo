@@ -18,7 +18,21 @@
         </activity>
 
 
+        <activity android:name=".SearchActivity"/>
         <activity android:name=".TestActivity"/>
+
+
+       <!-- <provider
+            android:name=".soa.support.storage.GearBestContentProvider"
+            android:authorities="com.globalegrow.app.gearbest.mycontentprovier"
+            android:enabled="true"
+            android:exported="false" />-->
+
+        <provider
+            android:authorities="com.betterzw.androiddemo.mycontentprovier"
+            android:name=".provider.EShopContentProvider"
+            android:enabled="true"
+            android:exported="false"/>
     </application>
 
 </manifest>

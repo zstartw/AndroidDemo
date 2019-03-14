@@ -26,26 +26,37 @@
         app:pointerRadius="4dp"
         />-->
 
+    <com.betterzw.customview.widget.CustomView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" />
+
+
+   <!-- <com.betterzw.customview.widget.CheckView
+        android:id="@+id/checkView"
+        android:layout_width="match_parent"
+        android:layout_height="300dip" />-->
+
+
     <Button
-        android:id="@+id/Reset"
+        android:id="@+id/reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="reset button"
         app:layout_constraintTop_toBottomOf="@+id/Pie" />
 
-<!--
-    <com.betterzw.customview.widget.BezierView
-        android:id="@+id/bezierView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/Reset" />-->
-    
-    <com.betterzw.customview.widget.CircleImageView
-        android:layout_width="45dip"
-        android:layout_height="45dip"
-        app:border_color="@color/colorAccent"
-        app:border_width="1dp"
-        android:src="@drawable/background"/>
+    <!--
+        <com.betterzw.customview.widget.BezierView
+            android:id="@+id/bezierView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/Reset" />-->
+
+    <!-- <com.betterzw.customview.widget.CircleImageView
+         android:layout_width="45dip"
+         android:layout_height="45dip"
+         app:border_color="@color/colorAccent"
+         app:border_width="1dp"
+         android:src="@drawable/background"/>-->
 
 </LinearLayout>

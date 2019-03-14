@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 
 
@@ -36,6 +37,12 @@ class MainActivity : AppCompatActivity() {
         btnSimpleSnackbar = findViewById(R.id.btnSimpleSnackbar)
         btnActionCallback = findViewById(R.id.btnActionCallback)
         btnCustomView = findViewById(R.id.btnCustomSnackbar)
+
+
+        var image = findViewById<ImageView>(R.id.image_ripple)
+        image.setOnClickListener(View.OnClickListener {
+
+        })
 
         btnSimpleSnackbar.setOnClickListener(View.OnClickListener {
             val snackbar = Snackbar

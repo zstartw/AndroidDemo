@@ -12,10 +12,13 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
+import com.betterzw.androiddemo.model.TestBean;
 import com.betterzw.androiddemo.provider.Suggestions;
 import com.google.android.flexbox.FlexboxLayout;
 
@@ -60,15 +63,25 @@ public class SearchActivity extends AppCompatActivity implements LoaderManager.L
     protected void onResume() {
         super.onResume();
 
-        Loader<Object> loader = getLoaderManager().getLoader(0);
+       /* Loader<Object> loader = getLoaderManager().getLoader(0);
         if (loader != null && !loader.isReset()) {
             getLoaderManager().restartLoader(0, null, this);
         } else {
             getLoaderManager().initLoader(0, null, this);
-        }
+        }*/
 
 
-        searchHotListView.set
+        TestBean testBean = JSONObject.parseObject("{\n" +
+                "\"age\":1231231231231,\n" +
+                "\"name\":\"firstname\"\n" +
+                "}", TestBean.class);
+
+//        var bean = JSONObject.parseObject<TestBean>("{\"age\":1231231111111111111111121212}", TestBean::class.java)
+        Log.d("MainActivity", "==========="+testBean.age);
+        Log.d("MainActivity", "==========="+testBean.name);
+        Log.d("MainActivity", "==========="+Long.MAX_VALUE);
+        Log.d("MainActivity", "==========="+Integer.MAX_VALUE);
+
     }
 
     @Override

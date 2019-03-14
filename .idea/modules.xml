@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidDemo.iml" filepath="$PROJECT_DIR$/AndroidDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/AndroidDemoNew.iml" filepath="$PROJECT_DIR$/.idea/AndroidDemoNew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidDemoNew.iml" filepath="$PROJECT_DIR$/AndroidDemoNew.iml" />
       <module fileurl="file://$PROJECT_DIR$/animationdemo/animationdemo.iml" filepath="$PROJECT_DIR$/animationdemo/animationdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
       <module fileurl="file://$PROJECT_DIR$/displayingbitmap/displayingbitmap.iml" filepath="$PROJECT_DIR$/displayingbitmap/displayingbitmap.iml" />
       <module fileurl="file://$PROJECT_DIR$/layoutmanagerdemo/layoutmanagerdemo.iml" filepath="$PROJECT_DIR$/layoutmanagerdemo/layoutmanagerdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/materialcomponents/materialcomponents.iml" filepath="$PROJECT_DIR$/materialcomponents/materialcomponents.iml" />
       <module fileurl="file://$PROJECT_DIR$/materialdesigndemo/materialdesigndemo.iml" filepath="$PROJECT_DIR$/materialdesigndemo/materialdesigndemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/navigation/navigation.iml" filepath="$PROJECT_DIR$/navigation/navigation.iml" />
       <module fileurl="file://$PROJECT_DIR$/permissiondemo/permissiondemo.iml" filepath="$PROJECT_DIR$/permissiondemo/permissiondemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/recyclerview/recyclerview.iml" filepath="$PROJECT_DIR$/recyclerview/recyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/referencesdemo/referencesdemo.iml" filepath="$PROJECT_DIR$/referencesdemo/referencesdemo.iml" />

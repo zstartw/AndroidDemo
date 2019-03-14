@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import com.alibaba.fastjson.JSONObject
+import com.betterzw.androiddemo.model.TestBean
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,10 +25,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
         var start = findViewById<Button>(R.id.start);
-        start.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(it.context, TestActivity::class.java))
-        })
+        start.setOnClickListener {
+            startActivity(Intent(it.context, SearchActivity::class.java))
+        }
     }
 
     override fun onPause() {

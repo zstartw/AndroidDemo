@@ -35,4 +35,20 @@
         <attr name="border_color" format="color" />
         <attr name="border_shadow" format="boolean" />
     </declare-styleable>
+
+
+    <!--自定义地址输入框-->
+    <declare-styleable name="AddressInput">
+        <attr name="inputHintTextColor" format="color" />
+        <attr name="inputHintText" format="reference" />
+        <attr name="inputHintTextSize" format="dimension" />
+        <attr name="inputTextLength" format="integer" />
+        <attr name="inputSingleLine" format="boolean" />
+        <attr name="inputTextType" />
+    </declare-styleable>
+    <attr name="inputTextType">
+        <flag name="email" value="1" />
+        <flag name="number" value="2" />
+        <flag name="password" value="3" />
+    </attr>
 </resources>

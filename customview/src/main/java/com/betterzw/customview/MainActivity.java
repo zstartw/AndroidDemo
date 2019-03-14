@@ -1,16 +1,12 @@
 package com.betterzw.customview;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.betterzw.customview.widget.PieChart;
-import com.betterzw.customview.widget.XfermodesView;
+import com.betterzw.customview.widget.CheckView;
 
 import java.util.ArrayList;
 
@@ -35,11 +31,16 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Object> objList = new ArrayList<>();
 
+    private boolean checked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        TextView textView = new TextView(this);
 
 //        final ImageView imageView = findViewById(R.id.imageView2);
 
@@ -96,5 +97,15 @@ public class MainActivity extends AppCompatActivity {
                 pie.setCurrentItem(0);
             }
         });*/
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
     }
 }

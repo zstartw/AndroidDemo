@@ -29,6 +29,17 @@
         android:paddingRight="20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
+        <ImageView
+            android:id="@+id/image_ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_launcher_background"/>
+
         <Button
             android:id="@+id/btnSimpleSnackbar"
             android:layout_width="fill_parent"

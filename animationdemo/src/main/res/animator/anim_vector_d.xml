@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" android:ordering="sequentially">
+
+  <!--  <objectAnimator
+        android:duration="400"
+        android:propertyName="Y"
+        android:repeatCount="infinite"
+        android:valueTo="10f"
+        android:valueType="floatType">
+    </objectAnimator>-->
+
+  <!--  <objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:propertyName="fillColor"
+    android:duration="5000"
+    android:valueFrom="@android:color/black"
+    android:valueTo="@android:color/holo_green_light"
+    android:repeatCount="infinite"
+    android:valueType="colorType">
+    </objectAnimator>objectAnimator></objectAnimator>-->
+
+    <!--<objectAnimator
+        android:duration="400"
+        android:propertyName="translateY"
+        android:repeatCount="infinite"
+        android:valueTo="10f"
+        android:valueType="floatType">
+    </objectAnimator>-->
+
+    <objectAnimator
+        android:duration="200"
+        android:propertyName="fillAlpha"
+        android:valueFrom="1"
+        android:valueTo="0"
+        android:repeatCount="infinite"/>
+
+</set>

@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity(), BlankFragment.OnFragmentInteractionLis
         setContentView(R.layout.activity_main)
     }
 
-  /*  override fun onSupportNavigateUp()
+   /* override fun onSupportNavigateUp(): Boolean {
+        return findNavController(this, R.id.nav_host_fragment).navigateUp()
+    }*/
+
+    /*override fun onSupportNavigateUp()
             = findNavController(R.id.nav_host_fragment).navigateUp()*/
 }

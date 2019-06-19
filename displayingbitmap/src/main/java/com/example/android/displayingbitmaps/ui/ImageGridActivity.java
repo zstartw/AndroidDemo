@@ -17,8 +17,8 @@
 package com.example.android.displayingbitmaps.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
+import androidx.core.app.FragmentActivity;
+import androidx.core.app.FragmentTransaction;
 
 import com.example.android.displayingbitmaps.BuildConfig;
 import com.example.android.displayingbitmaps.util.Utils;

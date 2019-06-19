@@ -1,12 +1,10 @@
 package com.betterzw.customview;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.TextView;
 
-import com.betterzw.customview.widget.CheckView;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 import java.util.ArrayList;
 
@@ -99,13 +97,4 @@ public class MainActivity extends AppCompatActivity {
         });*/
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return super.dispatchTouchEvent(ev);
-    }
 }

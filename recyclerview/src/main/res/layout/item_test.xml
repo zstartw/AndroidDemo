@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dip"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -18,4 +18,4 @@
         android:background="@color/colorAccent">
 
     </FrameLayout>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.ConstraintLayout>

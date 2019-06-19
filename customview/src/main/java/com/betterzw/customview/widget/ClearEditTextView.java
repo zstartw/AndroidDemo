@@ -3,10 +3,7 @@ package com.betterzw.customview.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
-import android.text.Html;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -19,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.betterzw.customview.R;
 

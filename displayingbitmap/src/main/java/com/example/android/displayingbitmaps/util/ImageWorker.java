@@ -24,8 +24,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
+import androidx.core.app.FragmentActivity;
+import androidx.core.app.FragmentManager;
 import android.widget.ImageView;
 
 import com.example.android.common.logger.Log;
@@ -65,7 +65,7 @@ public abstract class ImageWorker {
      * Load an image specified by the data parameter into an ImageView (override
      * {@link ImageWorker#processBitmap(Object)} to define the processing logic). A memory and
      * disk cache will be used if an {@link ImageCache} has been added using
-     * {@link ImageWorker#addImageCache(android.support.v4.app.FragmentManager, ImageCache.ImageCacheParams)}. If the
+     * {@link ImageWorker#addImageCache(androidx.core.app.FragmentManager, ImageCache.ImageCacheParams)}. If the
      * image is found in the memory cache, it is set immediately, otherwise an {@link AsyncTask}
      * will be created to asynchronously load the bitmap.
      *
@@ -109,7 +109,7 @@ public abstract class ImageWorker {
      * Load an image specified by the data parameter into an ImageView (override
      * {@link ImageWorker#processBitmap(Object)} to define the processing logic). A memory and
      * disk cache will be used if an {@link ImageCache} has been added using
-     * {@link ImageWorker#addImageCache(android.support.v4.app.FragmentManager, ImageCache.ImageCacheParams)}. If the
+     * {@link ImageWorker#addImageCache(androidx.core.app.FragmentManager, ImageCache.ImageCacheParams)}. If the
      * image is found in the memory cache, it is set immediately, otherwise an {@link AsyncTask}
      * will be created to asynchronously load the bitmap.
      *

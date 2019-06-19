@@ -8,7 +8,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.NestedScrollView;
+import androidx.core.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -23,7 +23,6 @@ import com.betterzw.androiddemo.provider.Suggestions;
 import com.google.android.flexbox.FlexboxLayout;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by zhengwu on 8/15/18.

@@ -1,12 +1,13 @@
 package com.betterzw.customview.widget;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -34,7 +35,7 @@ public class CustomView extends View {
         init();
     }
 
-    public CustomView(Context context, @Nullable AttributeSet attrs) {
+    public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         mContext = context;
@@ -42,7 +43,7 @@ public class CustomView extends View {
         init();
     }
 
-    public CustomView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CustomView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         mContext = context;
@@ -61,16 +62,16 @@ public class CustomView extends View {
         mPaint.setColor(Color.BLUE);
     }
 
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+    /*  @Override
+      protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+          super.onSizeChanged(w, h, oldw, oldh);
 
-        Log.d(TAG, "onSizeChanged: " + w + "," + h);
+          Log.d(TAG, "onSizeChanged: " + w + "," + h);
 
-//        mWidth = w;
-//        mHeight = h;
-    }
-
+          mWidth = w;
+          mHeight = h;
+      }
+  */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
@@ -88,8 +89,8 @@ public class CustomView extends View {
         super.onDraw(canvas);
 
         drawLine(canvas);
-        drawMutiRect(canvas);
-        drawTwoCirlce(canvas);
+//        drawMutiRect(canvas);
+//        drawTwoCirlce(canvas);
     }
 
     @Override
@@ -102,47 +103,68 @@ public class CustomView extends View {
         return super.dispatchTouchEvent(event);
     }
 
-    public void drawLine(Canvas canvas){
-        canvas.translate(mWidth/2, mHeight/2);
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    public void drawLine(Canvas canvas) {
+        canvas.translate(mWidth / 2, mHeight / 2);
+
+//
+//        Path path = new Path();
+//        path.lineTo(100, 100);
+//        path.lineTo(100, 0);
+//        path.close();
+//        canvas.drawPath(path, mPaint);
 
 
-        Path path = new Path();
-        path.lineTo(100, 100);
-        path.lineTo(100, 0);
-        path.close();
-        canvas.drawPath(path, mPaint);
+//        path.addRect(-200, -200, 200, 200, Path.Direction.CW);
+//        path.setLastPoint(-100, 100);                // <-- 重置最后一个点的位置
+//        canvas.drawPath(path, mPaint);
 
+        Path path1 = new Path();
+        Path path2 = new Path();
+        Path path3 = new Path();
+        Path path4 = new Path();
+
+        path1.addCircle(0, 0, 200, Path.Direction.CW);
+        path2.addRect(0, -200, 200, 200, Path.Direction.CW);
+        path3.addCircle(0, -100, 100, Path.Direction.CW);
+        path4.addCircle(0, 100, 100, Path.Direction.CCW);
+//
+//
+        path1.op(path2, Path.Op.DIFFERENCE);
+        path1.op(path3, Path.Op.UNION);
+        path1.op(path4, Path.Op.DIFFERENCE);
+
+        canvas.drawPath(path1, mPaint);
 
     }
 
-    public void drawMutiRect(Canvas canvas){
+    public void drawMutiRect(Canvas canvas) {
 
         canvas.save();
 
         canvas.translate(mWidth / 2, mHeight / 2);
 
         RectF rect = new RectF(-400, -400, 400, 400);   // 矩形区域
-        for (int i=0; i<=20; i++)
-        {
-            canvas.scale(0.9f,0.9f);
-            canvas.drawRect(rect,mPaint);
+        for (int i = 0; i <= 20; i++) {
+            canvas.scale(0.9f, 0.9f);
+            canvas.drawRect(rect, mPaint);
         }
 
         // getSaveCount 最小值为1,表示初始的状态
-        Log.d(TAG, "drawMutiRect: "+canvas.getSaveCount());
+        Log.d(TAG, "drawMutiRect: " + canvas.getSaveCount());
         canvas.restore();
 
-        Log.d(TAG, "drawMutiRect: "+canvas.getSaveCount());
+        Log.d(TAG, "drawMutiRect: " + canvas.getSaveCount());
     }
 
-    public void drawTwoCirlce(Canvas canvas){
+    public void drawTwoCirlce(Canvas canvas) {
 
 //        canvas.translate(mWidth / 2, mHeight / 2);
 
         canvas.drawCircle(0, 0, 400, mPaint);
         canvas.drawCircle(0, 0, 380, mPaint);
 
-        for (int i=0; i<360; i+=10){
+        for (int i = 0; i < 45; i += 10) {
             canvas.drawLine(0, 380, 0, 400, mPaint);
             canvas.rotate(10);//旋转当前画布
         }

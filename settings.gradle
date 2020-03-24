@@ -1,1 +1,1 @@
-include ':app', ':customview', ':webviewjavascript', ':layoutmanagerdemo', ':threadsample', ':permissiondemo', ':materialdesigndemo', ':servicedemo', ':referencesdemo', ':displayingbitmap', ':animationdemo', ':recyclerview', ':materialcomponents', ':navigation', ':pickcolor'
+include ':app', ':customview', ':webviewjavascript', ':layoutmanagerdemo', ':threadsample', ':permissiondemo', ':materialdesigndemo', ':servicedemo'

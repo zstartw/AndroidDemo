@@ -4,12 +4,12 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         ButterKnife.bind(this)
 
 
-       /* findViewById<Button>(R.id.button1).setOnClickListener {
+        findViewById<Button>(R.id.button1).setOnClickListener {
             bindService()
         }
 
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.button5).setOnClickListener {
             startIntentService()
-        }*/
+        }
 
      /*   var intent = Intent(this, ServiceDemo::class.java)
         bindService(intent, myServiceConnection, Context.BIND_AUTO_CREATE)

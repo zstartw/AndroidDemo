@@ -62,6 +62,15 @@ class ServiceDemo : Service() {
         Log.d(TAG, "onCreate")
     }
 
+
+    /**
+     * service已经启动的话, 重复启动这个方法会调用多次
+     */
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.d(TAG, "onStartCommand");
+        return super.onStartCommand(intent, flags, startId)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy")

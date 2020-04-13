@@ -2,7 +2,9 @@ package com.betterzw.servicedemo
 
 import android.app.IntentService
 import android.content.Intent
+import android.os.Messenger
 import android.util.Log
+import org.greenrobot.eventbus.EventBus
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLConnection
@@ -22,6 +24,8 @@ class IntentServiceDemo : IntentService("Intent Service") {
 
 
     override fun onHandleIntent(intent: Intent?) {
+
+        Log.d("tag", "responseCode=====begin")
 
         var localURL:URL
 
@@ -45,6 +49,9 @@ class IntentServiceDemo : IntentService("Intent Service") {
                 when(responseCode){
                     HttpURLConnection.HTTP_OK -> printResult(localHttpURLConnection.getInputStream())
                 }
+
+
+                EventBus.getDefault().post(MessageEvent(number = responseCode))
 
                 Log.d(TAG, "responseCode:"+responseCode)
             }

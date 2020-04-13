@@ -9,10 +9,15 @@ import android.os.IBinder
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+
 class MainActivity : AppCompatActivity() {
 
     var isBound: Boolean = false
@@ -43,6 +48,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onMessageEvent(event: MessageEvent){
+
+        findViewById<TextView>(R.id.textView).setText(event.number.toString())
+    }
 
     var myServiceConnection: ServiceConnection = object : ServiceConnection {
         override fun onServiceDisconnected(name: ComponentName?) {
@@ -98,6 +108,16 @@ class MainActivity : AppCompatActivity() {
 
             Log.d(TAG, "run:"+Thread.currentThread().id)
         }).start()*/
+    }
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
     }
 
     fun startIntentService(){

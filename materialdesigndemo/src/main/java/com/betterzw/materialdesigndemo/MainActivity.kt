@@ -1,15 +1,15 @@
 package com.betterzw.materialdesigndemo
 
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.CoordinatorLayout
-import android.support.design.widget.Snackbar
-import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import com.google.android.material.snackbar.Snackbar
 
 
 /**
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
             // Changing action button text color
             val sbView = snackbar.view
-            val textView = sbView.findViewById<View>(android.support.design.R.id.snackbar_text) as TextView
+            val textView = sbView.findViewById<View>(R.id.snackbar_text) as TextView
             textView.setTextColor(Color.YELLOW)
 
             snackbar.show()

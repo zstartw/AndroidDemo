@@ -7,7 +7,8 @@ package com.betterzw.permissiondemo;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 /**

@@ -26,9 +26,15 @@
         app:pointerRadius="4dp"
         />-->
 
+    <com.betterzw.customview.widget.CustomButton
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:text="click"/>
+<!--
     <com.betterzw.customview.widget.CustomView
          android:layout_width="match_parent"
          android:layout_height="wrap_content" />
+-->
 
 
    <!-- <com.betterzw.customview.widget.CheckView

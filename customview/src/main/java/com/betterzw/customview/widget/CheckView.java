@@ -26,7 +26,6 @@ public class CheckView extends View {
     private Context mContext;           // 上下文
     private int mWidth, mHeight;        // 宽高
     private Handler mHandler;           // handler
-
     private Paint mPaint;
     private Bitmap okBitmap;
 

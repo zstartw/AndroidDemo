@@ -1,6 +1,8 @@
 package com.betterzw.customview;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -97,4 +99,11 @@ public class MainActivity extends AppCompatActivity {
         });*/
     }
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.d("Main", "event---dispatch:"+ev.getAction());
+        boolean result = super.dispatchTouchEvent(ev);
+        Log.d("Main", "event---dispatch result :"+ev.getAction());
+        return result;
+    }
 }

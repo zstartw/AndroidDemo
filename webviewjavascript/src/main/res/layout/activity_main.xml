@@ -5,13 +5,32 @@
     android:orientation="vertical"
     android:id="@+id/layout_main" >
 
-    <WebView
-        android:id="@+id/mywebview"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dip"
-        android:background="@color/colorAccent"/>
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
-    <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.betterzw.webviewjavascript.TouchyWebView
+                android:id="@+id/mywebview"
+                android:layout_width="match_parent"
+                android:layout_height="800dip" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="123123"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+ <!--   <Button
         android:id="@+id/button_loadurl"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -24,6 +43,6 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_below="@id/button_loadurl"
-        android:text="通过evaluateJavascript调用js"/>
+        android:text="通过evaluateJavascript调用js"/>-->
 
 </LinearLayout>

@@ -1,2 +1,2 @@
 include ':app', ':customview', ':webviewjavascript', ':layoutmanagerdemo', ':threadsample', ':permissiondemo', ':materialdesigndemo', ':servicedemo'
-include ':surfaceview'
+include ':surfaceview', ':recyclerview'

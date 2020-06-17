@@ -2,16 +2,18 @@ package com.betterzw.recyclerview;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,11 +31,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
 
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter());
 
 
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+      /*  recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-        });
+        });*/
     }
 
     class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
@@ -79,13 +82,13 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+            Log.d("tag", "==========="+holder.toString());
 
         }
 
         @Override
         public int getItemCount() {
-            return 10;
+            return 100;
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {

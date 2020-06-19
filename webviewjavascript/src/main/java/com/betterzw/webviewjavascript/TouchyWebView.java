@@ -26,6 +26,8 @@ public class TouchyWebView extends WebView {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public TouchyWebView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+
+        clearView();
     }
 
 //    @Override
@@ -76,7 +78,7 @@ public class TouchyWebView extends WebView {
 //            default:
 //                break;
 //        }
-        getParent().requestDisallowInterceptTouchEvent(true);
+//        getParent().requestDisallowInterceptTouchEvent(true);
         return super.onTouchEvent(event);
     }
 

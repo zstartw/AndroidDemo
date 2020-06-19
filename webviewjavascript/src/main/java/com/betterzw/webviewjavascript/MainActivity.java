@@ -1,34 +1,109 @@
 package com.betterzw.webviewjavascript;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private TouchyWebView webview;
+    private X5WebView webview;
     private Button button_loadurl;
     private Button button_evaluatejs;
 
+    private Button showWebView;
+
     private boolean isPageFinished;
 
-    private final static String test_url = "https://www.baidu.com";
+    private final static String test_url = "http://community.test.file.mediportal.com.cn/dd3ec722c7a94739ae7ff85494869a04";
+//    private final static String test_url = "http://community.test.file.mediportal.com.cn/80404382b8344fb4951894ad8dcfb86d";
     private final static String WEBVIEW_JS_TAG = "jstag://";
+
+
+    private SensorManager sensorManager;
+    private Sensor sensor;
+    float[] RR = new float[9];
+    float[] I = new float[9];
+    float[] gravity = new float[3];
+    float[] geomagnetic = new float[3];
+
+    private int minDegree = 20;//50度
+    private boolean verPhone = false;
+//    private int maxDegree = 90;
+
+    private SensorEventListener sensorListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            Log.d("TAG", "========"+event.values[0]+"=="+event.values[1]+"==="+event.values[2]);
+
+
+
+//            Log.d("TAG", "=======min="+Math.sin(Math.PI*minDegree/180));
+//            Log.d("TAG", "=======max="+Math.sin(Math.PI*maxDegree/180));
+
+
+            if (event.sensor.getType() == Sensor.TYPE_ROTATION_VECTOR){
+                float x = Math.abs(event.values[0]);
+
+                if (x >= Math.sin(Math.PI*minDegree/180)){
+                    verPhone = true;
+                }else {
+                    verPhone = false;
+                }
+            }else if (event.sensor.getType() == Sensor.TYPE_PROXIMITY){
+                float distance = event.values[0];
+                float maxRange = event.sensor.getMaximumRange();
+                float threshold = Math.min(maxRange, 3);
+                Log.d("tag", "=======dis:"+(distance < threshold) + "=="+verPhone);
+            }
+
+//            if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+//                gravity = event.values;
+//            }else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD){
+//                geomagnetic = event.values;
+//            } else{
+////                SensorManager.getRotationMatrix(R, null, gravity, geomagnetic);
+//
+//            }
+//
+////            boolean re = SensorManager.getRotationMatrix(RR, I, gravity, geomagnetic);
+////            if (re){
+//
+//                float[] result = SensorManager.getOrientation(RR, event.values);
+//                Log.d("tag", "========"+result[0]+"==="+result[1]);
+////            }
+
+
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +114,47 @@ public class MainActivity extends AppCompatActivity {
 
         findView();
         initWebview();
+
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+
+//        Sensor accSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//        Sensor fixSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+
+        Sensor disSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
+        sensorManager.registerListener(sensorListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(sensorListener, disSensor, SensorManager.SENSOR_DELAY_NORMAL);
+//        sensorManager.registerListener(sensorListener, accSensor, SensorManager.SENSOR_DELAY_NORMAL);
+//        sensorManager.registerListener(sensorListener, fixSensor, SensorManager.SENSOR_DELAY_NORMAL);
 //        initButton();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        sensorManager.unregisterListener(sensorListener);
+    }
+
     private void findView() {
-        webview = (TouchyWebView) findViewById(R.id.mywebview);
+        webview = findViewById(R.id.mywebview);
+        showWebView = findViewById(R.id.show_webview_bt);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webview.setNestedScrollingEnabled(true);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            webview.setNestedScrollingEnabled(true);
+//        }
 
+        webview.setVisibility(View.GONE);
+
+        showWebView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showWebView.setVisibility(View.GONE);
+                webview.setVisibility(View.VISIBLE);
+            }
+        });
 //        button_loadurl = (Button) findViewById(R.id.button_loadurl);
 //        button_evaluatejs = (Button) findViewById(R.id.button_evaluatejs);
     }
@@ -59,30 +165,43 @@ public class MainActivity extends AppCompatActivity {
     private void initWebview() {
 
         // 初始化webview
-        WebSettings webSettings = webview.getSettings();
-        webSettings.setJavaScriptEnabled(true);
+//        WebSettings webSettings = webview.getSettings();
+//        webSettings.setJavaScriptEnabled(true);
 
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 //        }
 
 
-        webSettings.setBlockNetworkImage(false);//不阻塞网络图片
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //允许混合（http，https）
-            //websettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
-        }
+//        webSettings.setBlockNetworkImage(false);//不阻塞网络图片
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            //允许混合（http，https）
+//            //websettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+//            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+//        }
 
+        webview.addJavascriptInterface(this, "App");
         webview.loadUrl(test_url);
 
-
-        webview.setWebViewClient(new WebViewClient() {
+        webview.setWebViewClient(new WebViewClient(){
             @Override
-            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                handler.proceed();//接受所有网站的证书
+            public void onPageFinished(WebView webView, String s) {
+
+                webview.loadUrl("javascript:App.resize(document.body.scrollHeight)");
+
+                super.onPageFinished(webView, s);
+
+
             }
         });
+
+
+//        webview.setWebViewClient(new WebViewClient() {
+//            @Override
+//            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+//                handler.proceed();//接受所有网站的证书
+//            }
+//        });
 
 //        webview.setOnTouchListener(new View.OnTouchListener() {
 //            // Setting on Touch Listener for handling the touch inside ScrollView
@@ -186,5 +305,16 @@ public class MainActivity extends AppCompatActivity {
         public void showMessage(String js_string) {
             Toast.makeText(getApplicationContext(), "接收到网页传来的字符串：" + js_string, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @JavascriptInterface
+    public void resize(final float height) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                webview.setLayoutParams(new LinearLayout.LayoutParams(getResources().getDisplayMetrics().widthPixels, (int) (height * getResources()
+                        .getDisplayMetrics().density)));
+            }
+        });
     }
 }

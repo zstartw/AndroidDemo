@@ -35,7 +35,7 @@ public class WebViewActivity extends AppCompatActivity {
 
 //        PullToRefreshScrollView scrollView = findViewById(R.id.pull_container);
 
-        MyWebView webView = findViewById(R.id.webview);
+        X5WebView webView = findViewById(R.id.webview);
 //        bottomView = findViewById(R.id.bottom_text);
 
 //        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) webView.getLayoutParams();

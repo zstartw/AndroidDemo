@@ -42,67 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private final static String WEBVIEW_JS_TAG = "jstag://";
 
 
-    private SensorManager sensorManager;
-    private Sensor sensor;
-    float[] RR = new float[9];
-    float[] I = new float[9];
-    float[] gravity = new float[3];
-    float[] geomagnetic = new float[3];
 
-    private int minDegree = 20;//50度
-    private boolean verPhone = false;
-//    private int maxDegree = 90;
-
-    private SensorEventListener sensorListener = new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            Log.d("TAG", "========"+event.values[0]+"=="+event.values[1]+"==="+event.values[2]);
-
-
-
-//            Log.d("TAG", "=======min="+Math.sin(Math.PI*minDegree/180));
-//            Log.d("TAG", "=======max="+Math.sin(Math.PI*maxDegree/180));
-
-
-            if (event.sensor.getType() == Sensor.TYPE_ROTATION_VECTOR){
-                float x = Math.abs(event.values[0]);
-
-                if (x >= Math.sin(Math.PI*minDegree/180)){
-                    verPhone = true;
-                }else {
-                    verPhone = false;
-                }
-            }else if (event.sensor.getType() == Sensor.TYPE_PROXIMITY){
-                float distance = event.values[0];
-                float maxRange = event.sensor.getMaximumRange();
-                float threshold = Math.min(maxRange, 3);
-                Log.d("tag", "=======dis:"+(distance < threshold) + "=="+verPhone);
-            }
-
-//            if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-//                gravity = event.values;
-//            }else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD){
-//                geomagnetic = event.values;
-//            } else{
-////                SensorManager.getRotationMatrix(R, null, gravity, geomagnetic);
-//
-//            }
-//
-////            boolean re = SensorManager.getRotationMatrix(RR, I, gravity, geomagnetic);
-////            if (re){
-//
-//                float[] result = SensorManager.getOrientation(RR, event.values);
-//                Log.d("tag", "========"+result[0]+"==="+result[1]);
-////            }
-
-
-        }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-        }
-    };
 
 
     @Override
@@ -114,28 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
         findView();
         initWebview();
-
-
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
-
-//        Sensor accSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-//        Sensor fixSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-
-        Sensor disSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-
-        sensorManager.registerListener(sensorListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
-        sensorManager.registerListener(sensorListener, disSensor, SensorManager.SENSOR_DELAY_NORMAL);
-//        sensorManager.registerListener(sensorListener, accSensor, SensorManager.SENSOR_DELAY_NORMAL);
-//        sensorManager.registerListener(sensorListener, fixSensor, SensorManager.SENSOR_DELAY_NORMAL);
-//        initButton();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        sensorManager.unregisterListener(sensorListener);
     }
 
     private void findView() {

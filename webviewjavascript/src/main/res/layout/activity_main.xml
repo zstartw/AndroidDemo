@@ -31,6 +31,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:text="123123"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="123123"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="123123"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="123123"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="123123"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

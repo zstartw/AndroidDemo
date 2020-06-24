@@ -47,9 +47,38 @@ public class X5WebView extends WebView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-        heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(500, View.MeasureSpec.AT_MOST);
+//        heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(900, View.MeasureSpec.AT_MOST);
 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+
+    @Override
+    protected void onSizeChanged(int i, int i1, int i2, int i3) {
+        super.onSizeChanged(i, i1, i2, i3);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        getParent().requestDisallowInterceptTouchEvent(true);
+//        requestDisallowInterceptTouchEvent(false);
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        requestDisallowInterceptTouchEvent(true);
+        return super.onInterceptTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
     }
 
     //    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
